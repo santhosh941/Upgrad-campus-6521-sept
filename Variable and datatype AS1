@@ -1,0 +1,24 @@
+1. What is Data Types in Java?
+Data Types in Java are defined as specifiers that allocate different sizes and types of values that can be stored in the variable or an identifier.
+Java has a rich set of data types.
+Data types in Java can be divided into two:-
+they are
+Primitive Data Types :- which include integer, character, boolean, and float
+Non-primitive Data Types :- which include classes, arrays and interfaces.
+
+2. arthematic opertions in java?
+  + This operator is used to add the values.
+  - This operator is used to subract the values.
+  * This operator ia used to perfrom multiplicaton.
+  / This operator is used to person divide between 2 values.
+
+3.What is  Casting in Java programming language?
+  Casting is used to convert primitive values from one data type to another.
+ ex:i.an int value can be assigned to  float data type.
+   ii.double value can be assigned to an int data type.
+  Casting can be  implicit or explicit.
+ i.implicit casting the conversion happens automatically, without writing specific code to do the conversion.
+   implicit casting happens when you convert or assign a smaller value, like a byte,to a larger data type such as an int.
+
+ ii.Explicit casting code has to be specifically written to perform the conversion from one primitive type to another.
+    Explicit casting is done by using the syntax (data_type) where data_type is the datatype that the cast is being applied.
