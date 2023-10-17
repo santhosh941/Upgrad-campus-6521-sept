@@ -1,0 +1,136 @@
+1.Write Java code to determine the smallest number of three numbers entered by the user. 
+
+code:
+    import java.util.*;
+    public class smallest {
+   public static void main(String[] args) {
+       int n1, n2, n3;
+    Scanner input = new Scanner(System.in);
+       n1 = input.nextInt();
+       n2 = input.nextInt();
+       n3 = input.nextInt();
+        if(n1<=n2 && n1<=n3) {
+           System.out.println("The smallest number entered is "+n1);
+       }
+        else if((n2<=n1) && (n2<=n3)) {
+           System.out.println("The smallest number entered is "+n2);
+        }
+        else{
+           System.out.println("The smallest number entered is "+n3);
+       }
+     }
+
+2.Write Java code using Switch case.
+
+code:
+     import java.util.*;
+     public class switch {
+
+   public static void main(String[] args) {
+
+       int n;
+       Scanner input= new Scanner(System.in);
+       n=input.nextInt();
+       switch (n){
+           case 1:
+               System.out.println("Hufflepuff");
+               break;
+           case 2:
+               System.out.println("Gryffindor");
+               break;
+           case 3:
+               System.out.println("Slytherin");
+               break;
+           case 4:
+               System.out.println("Ravenclaw");
+               break;
+           default:
+               System.out.println("Enter a number from 1 to 4");
+       }
+   }
+}
+
+3. Which of the following loops will execute the body of loop even when condition controlling the loop is initially false?
+a) do-while*
+b) while
+c) for
+d) none of the above
+
+4.Write a program that prints all the odd numbers from 25 to 1 (in decreasing order)using while loop.
+
+code:
+ public class oddnumber {
+    public static void main(String[] args) {
+        int number = 25;
+        
+        while (number >= 1) {
+            if (number % 2 != 0) {
+                System.out.print(number +" " );
+            }
+            number--; 
+        }
+    }
+}
+
+5.Write a program that prints the sum of first n numbers, n is the input from the user.
+
+code:
+   import java.util.Scanner;
+   public class Sum {
+  public static void main(String arg[]) {
+    Scanner scan = new Scanner(System.in);
+    //Enter the number upto which you wish to find the sum, in the input console
+    int number = scan.nextInt();
+    int sum = 0;
+       for (int i=0;i<=number;i++ ) {
+      // Write your logic here
+      sum+=i;
+    }
+    System.out.print(sum);
+    }
+}
+
+6.write a java code using do while loop to print first n integers starting from 0 in reverse order.
+
+code: import java.util.*;
+public class dowhile {
+
+   public static void main(String[] args) {
+     int n;
+     Scanner input= new Scanner(System.in);
+     n=input.nextInt();
+     int counter=n;
+     do{
+         System.out.println(counter);
+         counter--;
+     }while(counter>=0);
+   }
+   }
+
+7.Which loop construct in Java is best suited when the number of iterations is known? 
+ans:(a)
+    a) for loop*
+    b) while loop
+    c) do-while loop
+    d) break statement 
+
+8.What is the purpose of the continue statement in a loop? 
+ans:(b)
+   a) To exit the loop immediately
+   b) To skip the current iteration and move to the next iteration *
+   c) To terminate the program
+   d) To execute a specific block of code 
+
+9.What is an infinite loop? 
+ans:(b)
+  a) A loop that executes only once
+  b) A loop that never terminates naturally*
+  c) A loop that contains an unreachable code block
+  d) A loop that uses the continue statement 
+
+10. Which statement is used to exit a loop prematurely? 
+ans:(c)
+  a) return statement
+  b) continue statement
+  c) break statement*
+  d) exit statement 
