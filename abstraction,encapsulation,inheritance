@@ -1,0 +1,347 @@
+1.Write a Java program to create an abstract class Animal with an abstract method called sound().
+ Create subclasses Lion and Tiger that extend the Animal class and implement the sound() method to make a 
+specific sound for each animal.
+
+abstract class Animal {
+
+    public abstract void sound();
+  }
+
+    class Lion extends Animal {
+     @Override
+     public void sound() {
+     System.out.println("Lion roars!");
+    }
+}
+    class Tiger extends Animal {
+     @Override
+     public void sound() {
+       System.out.println("Tiger growls!");
+    }
+}
+  public class Main {
+    public static void main(String[] args) {
+        Animal lion = new Lion();
+        lion.sound(); 
+
+        Animal tiger = new Tiger();
+        tiger.sound();
+    }
+}
+
+2.Write a Java program to create an abstract class Shape with abstract methods calculateArea() and calculatePerimeter().
+ Create subclasses Circle and Triangle that extend the Shape class and implement the respective methods to calculate the area and perimeter of each shape.
+
+    abstract class Shape {
+    abstract double calculateArea();
+    abstract double calculatePerimeter();
+  }
+    class Circle extends Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+
+    @Override
+    double calculatePerimeter() {
+        return 2 * Math.PI * radius;
+    }
+}
+
+     class Triangle extends Shape {
+    private double side1;
+    private double side2;
+    private double side3;
+
+    public Triangle(double side1, double side2, double side3) {
+        this.side1 = side1;
+        this.side2 = side2;
+        this.side3 = side3;
+    }
+
+    @Override
+    double calculateArea() {
+        double s = (side1 + side2 + side3) / 2; // Semi-perimeter
+        return Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
+    }
+
+    @Override
+    double calculatePerimeter() {
+        return side1 + side2 + side3;
+    }
+}
+
+     public class Main {
+     public static void main(String[] args) {
+		double r = 4.0;
+        Circle circle = new Circle(r);
+		double ts1 = 3.0, ts2 = 4.0, ts3 = 5.0;
+        Triangle triangle = new Triangle(ts1, ts2, ts3);
+        System.out.println("Radius of the Circle"+r);
+        System.out.println("Area of the Circle: " + circle.calculateArea());
+        System.out.println("Perimeter of the Circle: " + circle.calculatePerimeter());
+        System.out.println("\nSides of the Traiangel are: "+ts1+','+ts2+','+ts3);
+        System.out.println("Area of the Triangle: " + triangle.calculateArea());
+        System.out.println("Perimeter of the Triangle: " + triangle.calculatePerimeter());
+    }
+}
+
+3.Write a Java program to create an abstract class Vehicle with abstract methods startEngine() and stopEngine().
+ Create subclasses Car and Motorcycle that extend the Vehicle class.implement the respective methods to start and stop the engines for each vehicle type.
+
+  abstract class Vehicle {
+  public abstract void startEngine();
+  public abstract void stopEngine();
+}
+
+  class Car extends Vehicle {
+  @Override
+  public void startEngine() {
+    System.out.println("Car: Starting the engine...");
+  }
+
+  @Override
+  public void stopEngine() {
+    System.out.println("Car: Stopping the engine...");
+  }
+}
+   class Motorcycle extends Vehicle {
+  @Override
+  public void startEngine() {
+    System.out.println("Motorcycle: Starting the engine...");
+  }
+
+  @Override
+  public void stopEngine() {
+    System.out.println("Motorcycle: Stopping the engine...");
+  }
+}
+    public class Main {
+    public static void main(String[] args) {
+    Vehicle car = new Car();
+    Vehicle motorcycle = new Motorcycle();
+
+    car.startEngine();
+    car.stopEngine();
+
+    motorcycle.startEngine();
+    motorcycle.stopEngine();
+  }
+}
+
+4.Write a Java program to create an abstract class Person with abstract methods eat() and exercise(). Create subclasses Athlete and LazyPerson that extend the Person class.
+implement the respective methods to describe how each person eats and exercises.
+
+  abstract class Person {
+  public abstract void eat();
+
+  public abstract void exercise();
+ }
+  class Athlete extends Person {
+  @Override
+  public void eat() {
+    System.out.println("Athlete: Include foods full of calcium, iron, potassium, and fiber.");
+  }
+
+  @Override
+  public void exercise() {
+    System.out.println("Athlete: Training allows the body to gradually build up strength and endurance.");
+  }
+ }
+
+  class LazyPerson extends Person {
+  @Override
+  public void eat() {
+    System.out.println("Couch Potato: Eating while watching TV also prolongs the time period that we're eating.");
+  }
+
+  @Override
+  public void exercise() {
+    System.out.println("Couch Potato: Rarely exercising or being physically active.");
+  }
+ }
+
+   public class Main {
+   public static void main(String[] args) {
+    Person athlete = new Athlete();
+    Person lazyPerson = new LazyPerson();
+    athlete.eat();
+    athlete.exercise();
+    lazyPerson.eat();
+    lazyPerson.exercise();
+  }
+ }
+
+5.Write a Java program to create an abstract class Instrument with abstract methods play() and tune(). Create subclasses for Glockenspiel and Violin that extend the Instrument class.
+ implement the respective methods to play and tune each instrument.
+
+  abstract class Instrument {
+  public abstract void play();
+
+  public abstract void tune();
+  }
+
+  class Glockenspiel extends Instrument {
+  @Override
+  public void play() {
+    System.out.println("Glockenspiel: Playing the notes on the metal bars.");
+  }
+
+  @Override
+  public void tune() {
+    System.out.println("Glockenspiel: Tuning the metal bars to the correct pitch.");
+  }
+ }
+
+  class Violin extends Instrument {
+  @Override
+  public void play() {
+    System.out.println("Violin: Playing the strings with a bow or fingers.");
+  }
+
+  @Override
+  public void tune() {
+    System.out.println("Violin: Tuning the strings to the correct pitch.");
+  }
+ }
+
+  public class Main {
+  public static void main(String[] args) {
+    Instrument glockenspiel = new Glockenspiel();
+    Instrument violin = new Violin();
+
+    glockenspiel.play();
+    glockenspiel.tune();
+
+    violin.play();
+    violin.tune();
+  }
+ }
+6. Write a Java program to create a class called Rectangle with private instance variables length and width.
+ Provide public getter and setter methods to access and modify these variables.
+
+class Rectangle {
+  private double length;
+  private double width;
+
+  public double getLength() {
+    return length;
+  }
+
+  public void setLength(double length) {
+    this.length = length;
+  }
+
+  public double getWidth() {
+    return width;
+  }
+
+  public void setWidth(double width) {
+    this.width = width;
+  }
+}
+public class Main {
+  public static void main(String[] args) {
+    // Create an instance of Rectangle
+    Rectangle rectangle = new Rectangle();
+
+    // Set values using setter methods
+    rectangle.setLength(6.7);
+    rectangle.setWidth(12.0);
+
+    // Get values using getter methods
+    double length = rectangle.getLength();
+    double width = rectangle.getWidth();
+
+    // Print the values
+    System.out.println("Length: " + length);
+    System.out.println("Width: " + width);
+  }
+}
+
+7.Write a Java program to create a class called Vehicle with a method called drive(). 
+Create a subclass called Car that overrides the drive() method to print "Repairing a car".
+
+class Vehicle {
+    public void drive() {
+        System.out.println("Repairing a vehicle");
+    }
+}
+class Car extends Vehicle {
+    @Override
+    public void drive() {
+        System.out.println("Repairing a car");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Vehicle vehicle = new Vehicle();
+        Car car = new Car();
+        vehicle.drive(); // Output: Repairing a vehicle
+        car.drive(); // Output: Repairing a car
+    }
+}
+
+8.Write a Java program to create a class called Employee with methods called work() and getSalary(). Create a subclass called HRManager that overrides the work() method and adds a new method called addEmployee().
+
+public class Employee {
+    private int salary;
+
+    public Employee(int salary) {
+        this.salary = salary;
+    }
+
+    public void work() {
+        System.out.println("working as an employee!");
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+}
+
+public class HRManager extends Employee {
+    public HRManager(int salary) {
+        super(salary);
+    }
+
+    public void work() {
+        System.out.println("\nManaging employees");
+    }
+
+    public void addEmployee() {
+        System.out.println("\nAdding new employee!");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Employee emp = new Employee(40000);
+        HRManager mgr = new HRManager(70000);
+
+        emp.work();
+        System.out.println("Employee salary: " + emp.getSalary());
+
+        mgr.work();
+        System.out.println("Manager salary: " + mgr.getSalary());
+        mgr.addEmployee();
+    }
+}
+
+9. Which of these is correct way of inheriting class A by class B?
+a) class B + class A {}
+b) class B inherits class A {}
+c) class B extends A {}
+d) class B extends class A {}
+ans:c
+
+10.Can a subclass inherit private members of its superclass? 
+a.Yes 
+b. No 
+ans:b
