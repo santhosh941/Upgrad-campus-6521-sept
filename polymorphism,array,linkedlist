@@ -1,0 +1,296 @@
+1.Write a Java program to create a base class Animal with a method called Sound().
+ Create two subclasses Bird and Cat and Override the Sound() method in each subclass to make a specific sound for each animal.
+code:
+     public class Animal {
+    public void makeSound() {
+        System.out.println("The animal makes a sound");
+    }
+}
+   public class Bird extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("The bird chirps");
+    }
+}
+
+    public class Cat extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("The cat meows");
+    }
+}
+     public class Main {
+    public static void main(String[] args) {
+        Animal animal = new Animal();
+        Bird bird = new Bird();
+        Cat cat = new Cat();
+
+        animal.makeSound();
+        bird.makeSound();  
+        cat.makeSound();    
+    }
+}
+
+2.Write a Java program to create a base class Shape with a method called calculateArea(). Create three subclasses Circle, Rectangle, and Triangle.
+ Override the calculateArea() method in each subclass to calculate and return the shape's area.
+code:
+         public class Shape {
+    public double calculateArea() {
+        return 0; 
+    }
+}
+    public class Circle extends Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    public double calculateArea() {
+        return Math.PI * radius * radius; 
+    }
+}
+    public class Rectangle extends Shape {
+    private double width;
+    private double height;
+
+    public Rectangle(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    @Override
+    public double calculateArea() {
+        return width * height; 
+    }
+}
+   public class Triangle extends Shape {
+    private double base;
+    private double height;
+
+    public Triangle(double base, double height) {
+        this.base = base;
+        this.height = height;
+    }
+
+    @Override
+    public double calculateArea() {
+        return 0.5 * base * height; 
+    }
+}
+
+    public class Main {
+    public static void main(String[] args) {
+        Circle circle = new Circle(4);
+        System.out.println("Area of Circle: " + circle.calculateArea());
+
+        Rectangle rectangle = new Rectangle(12, 34);
+        System.out.println("\nArea of Rectangle: " + rectangle.calculateArea());
+
+        Triangle triangle = new Triangle(5, 9);
+        System.out.println("\nArea of Triangle: " + triangle.calculateArea());
+    }
+}
+
+3.Write a Java program to create a base class Vehicle with methods startEngine() and stopEngine().
+ Create two subclasses Car and Motorcycle. Override the startEngine() and stopEngine() methods in each subclass to start and stop the engines.
+code:
+     abstract class Vehicle {
+  public abstract void startEngine();
+
+  public abstract void stopEngine();
+}
+  class Car extends Vehicle {
+  @Override
+  public void startEngine() {
+    System.out.println("Car engine started with a key.");
+  }
+
+  @Override
+  public void stopEngine() {
+    System.out.println("Car engine stopped when the key was turned off.");
+  }
+}
+  class Motorcycle extends Vehicle {
+  @Override
+  public void startEngine() {
+    System.out.println("Motorcycle engine started with a kick-start.");
+  }
+
+  @Override
+  public void stopEngine() {
+    System.out.println("Motorcycle engine stopped when ignition was turned off.");
+  }
+}
+  public class Main {
+  public static void main(String[] args) {
+    Vehicle car = new Car();
+    Vehicle motorcycle = new Motorcycle();
+
+    startAndStopEngine(car);
+    startAndStopEngine(motorcycle);
+  }
+
+  public static void startAndStopEngine(Vehicle vehicle) {
+    vehicle.startEngine();
+    vehicle.stopEngine();
+  }
+}
+
+4.Write a Java program to create an array list, add some colors and print out the collection.
+code:
+import java.util.*;
+
+public class Exercise1 {
+
+  public static void main(String[] args) {
+  List<String> list_Strings = new ArrayList<String>();
+  list_Strings.add("Red");
+  list_Strings.add("Green");
+  list_Strings.add("Orange");
+  list_Strings.add("White");
+  list_Strings.add("Black");
+  System.out.println(list_Strings);
+ }
+}
+
+5.Write a Java program to insert an element into the array list at the first position.
+code:
+import java.util.*;
+  public class Exercise3 {
+  public static void main(String[] args) {
+  List<String> list_Strings = new ArrayList<String>();
+  list_Strings.add("Red");
+  list_Strings.add("Green");
+  list_Strings.add("Orange");
+  list_Strings.add("White");
+  list_Strings.add("Black");
+  
+  System.out.println(list_Strings);
+  list_Strings.add(0, "Pink");
+  list_Strings.add(5, "Yellow");
+  System.out.println(list_Strings);
+ }
+}
+
+6.Write a Java program to reverse elements in an array list.
+code:
+   import java.util.*;
+  public class Exercise11 {
+  public static void main(String[] args) {
+  
+  List<String> list_Strings = new ArrayList<String>();
+  list_Strings.add("Red");
+  list_Strings.add("Green");
+  list_Strings.add("Orange");
+  list_Strings.add("White");
+  list_Strings.add("Black");
+  System.out.println(" the List before reversing :\n" + list_Strings);  
+  Collections.reverse(list_Strings);
+  System.out.println(" the List after reversing :\n" + list_Strings); 
+ }
+}
+
+7.Write a Java program to insert the specified element at the specified position in the linked list.
+code:
+        import java.util.LinkedList;
+public class Insert_Specified_Position
+{
+	public static void main(String[] args)
+	{
+		LinkedList <String> book_list = new LinkedList <String> ();
+		book_list.add("Java");
+		book_list.add("C");
+		book_list.add("Cpp");
+		book_list.add("Python");
+		book_list.add("Php");
+		book_list.add("Css");
+		book_list.add("Html");
+		book_list.add("MySql");
+		System.out.println("Linked list : "+book_list);
+		System.out.println("add the Bootstrap color beofre the Python Color..");
+		book_list.add(3, "Bootstrap");
+		System.out.println("Linked list :" + book_list);
+	}
+}
+
+8.Write a Java program to iterate through all elements in a linked list.
+code:
+    import java.util.LinkedList;
+    public class Iterate_Element
+     {
+	public static void main(String[] args)
+	{
+		LinkedList<String> book_list = new LinkedList<String>();
+		book_list.add("san");
+		book_list.add("van");
+		book_list.add("Can");
+		book_list.add("Pan");
+		book_list.add("man");
+		book_list.add("dog");
+		book_list.add("cat");
+		for (String b : book_list)
+		{
+			System.out.println(b);
+		}
+	}
+}
+
+9.Write a Java program to check if a particular element exists in a linked list.
+code:
+     import java.util.*;
+public class Check_Element
+{
+	public static void main(String[] args)
+	{
+		LinkedList <String> fruit_list = new LinkedList <String> ();
+		fruit_list.add("Papaya");
+		fruit_list.add("Mulberry");
+		fruit_list.add("Apple");
+		fruit_list.add("Banana");
+		fruit_list.add("Cherry");
+		System.out.println("Given linked list: " + fruit_list);
+		if (fruit_list.contains("Cherry"))
+		{
+			System.out.println("Fruit Cherry is Present..");
+		}
+		else
+		{
+			System.out.println("Fruit Cherry is Not Present..");
+		}
+ 
+		if (fru_list.contains("grape"))
+		{
+			System.out.println("Fruit grape is Present..");
+		}
+		else
+		{
+			System.out.println("Fruit grape is Not Present..");
+		}
+	}
+}
+
+
+10.Write a Java program to convert a linked list to array list.
+code: 
+       import java.util.*;
+public class LinkedList_ArrayList
+{
+	public static void main(String[] args)
+	{
+		LinkedList <String> linked_list = new LinkedList <String> ();
+		linked_list.add("Java");
+		linked_list.add("C");
+		linked_list.add("Cpp");
+		linked_list.add("Python");
+		System.out.println("Given linked list: " + linked_list);
+ 
+		List<String> array_list = new ArrayList<String>(linked_list);
+ 
+		for (String s : array_list)
+		{
+			System.out.println(s);
+		}
+	}
+}
