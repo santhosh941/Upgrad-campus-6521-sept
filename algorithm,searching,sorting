@@ -1,0 +1,351 @@
+1.Write a Java program to find a specified element in a given array of elements using Linear Search.
+code:
+    public class Main {
+	static int [] array;
+
+	public static void main(String[] args) {
+		array = new int[]{3,2,4,5,6,7,8,9};
+		int result = Linear_Search(array, 8);
+		if(result == -1)
+		{
+			System.out.print("Not present in the array!");			
+		}
+		else
+		System.out.print("Number found at index "+result);	
+	}
+	
+	private static int Linear_Search(int [] array,int key)
+	{
+		for(int i=0;i<array.length;i++)
+		{
+			if(array[i]==key)
+			{
+				return i;
+				
+			}			
+		}
+		return -1;
+		
+	}
+}
+
+2.Write a Java program to find a specified element in a given array of elements using binary Search.
+code:
+       public class Search {
+
+    public int binarySearch(int[] Array, int l,int r,int x) {
+
+        int l = 0;
+        int r = Array.length - 1;
+        while (l <= r) {
+            int mid = (l + r) / 2;
+            if (x == Array[mid]) {
+                return mid;
+            }
+            if (x < Array[mid]) {
+                r = mid - 1;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return -1;
+    }
+
+    public static void main(String[] args) {
+
+        BinarySearch bin = new BinarySearch();
+        int[] arr = {2, 4, 6, 8, 10, 12, 14, 16};
+        System.out.println("Key 14's position: " + bin.binarySearch(array, 10));
+        
+    }
+}
+
+3.Write a Java program to find a specified element in a given array of elements and print the 1st positon in resverse order.
+code:
+       public class searching{
+
+   public static void main(String[] args) {
+    int size;
+    int i;
+
+  Scanner input=new Scanner(System.in);
+
+        int size=input.nextInt();
+        int arr[]=new int [size];
+         for(i=0;i<size;i++){
+        arr[]=input.nextInt();
+   }
+       int key=input.nextInt();
+      input.close();
+       int result=0;
+       for(i=0;i<size;i++){
+      if(arr[i]==key){
+       result=(size-1)-i);
+   }
+}
+        if(result>=0){
+            System.out.print(result);
+   }
+}
+
+4.Write a Java program to sort an array of given integers using the Bubble Sorting Algorithm.
+code:
+       import java.util.Arrays;
+class BubbleSort
+{
+    void bubbleSort(int arr[])
+    {
+        int n = arr.length;
+        for (int i = 0; i < n-1; i++)
+            for (int j = 0; j < n-i-1; j++)
+                if (arr[j] > arr[j+1])
+                {
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+    }
+    public static void main(String args[])
+    {
+        BubbleSort ob = new BubbleSort();
+        int arr[] = {7, -5, 3, 2, 1, 0, 45};
+        System.out.println("Original Array:");
+        System.out.println(Arrays.toString(arr));
+        ob.bubbleSort(arr);
+        System.out.println("Sorted Array");
+        System.out.println(Arrays.toString(arr));
+    }
+}
+5.Write a Java program to sort an array of given integers using the Selection Sort Algorithm.
+code:
+     import  java.util.Arrays;
+  public class Sort {
+  public static void SelectionSort(int[] nums)
+  {
+  for(int start = 0;start<arr.length-1;start++){
+  int small =  Integer.MAX_VALUE;
+  int smallAt =  start+1;
+  for(int check =  start; check<arr.length;check++){
+  if(arr[check]<small){
+  smallAt  = check;
+  small  = arr[check];
+  }
+  }
+  int temp =  arr[start];
+  nums[start]  = arr[smallAt];
+  nums[smallAt]  = temp;
+  }
+  }
+  public static void main(String args[])
+  {
+  Sort ob = new Sort();
+  int arr[] = {7, -5, 3, 2, 1, 0, 45};
+  System.out.println("Original  Array:");
+  System.out.println(Arrays.toString(arr));
+  ob.SelectionSort(arr);
+  System.out.println("Sorted  Array:");
+  System.out.println(Arrays.toString(arr));
+  }        
+  }
+
+6.Write a Java program to sort an array of given integers using the Insertion sort algorithm.
+code:
+      import java.util.Arrays;
+
+public class InsertionSort {
+  void InsertionSort(int[] nums){
+  for(int i = 1; i < arr.length; i++){
+    int value = arr[i];
+    int j = i - 1;
+    while(j >= 0 && arr[j] > value){
+      arr[j + 1] = arr[j];
+      j = j - 1;
+    }
+    arr[j + 1] = value;
+  }
+}
+  
+    public static void main(String args[])
+    {
+        InsertionSort ob = new InsertionSort();
+        int arr[] = {7, -5, 3, 2, 1, 0, 45};
+        System.out.println("Original Array:");
+        System.out.println(Arrays.toString(arr));
+        ob.InsertionSort(arr);
+        System.out.println("Sorted Array");
+        System.out.println(Arrays.toString(arr));
+    }
+}
+
+7.Write a Java program to sort an array of given integers using the Quick sort algorithm.
+code:
+     import java.util.Arrays;
+public class QuickSort {
+     
+    private int temp_arr[];
+    private int length;
+ 
+    public void sort(int[] array) {
+         
+        if (array == null || array.length == 0) {
+            return;
+        }
+        this.temp_arr = array;
+        length = array.length;
+        quickSort(0, length - 1);
+    }
+     private void quickSort(int low_index, int high_index) {
+         
+        int i = low_index;
+        int j = high_index;
+        int pivot = temp_arr[low_index+(high_index-low_index)/2];
+        while (i <= j) {
+               while (temp_arr[i] < pivot) {
+                i++;
+            }
+            while (temp_arr[j] > pivot) {
+                j--;
+            }
+            if (i <= j) {
+                exchangeNumbers(i, j);
+                i++;
+                j--;
+            }
+        }
+        if (low_index < j)
+            quickSort(low_index, j);
+        if (i < high_index)
+            quickSort(i, high_index);
+    }
+ 
+    private void exchangeNumbers(int i, int j) {
+        int temp = temp_arr[i];
+        temp_arr[i] = temp_arr[j];
+        temp_arr[j] = temp;
+    }
+     
+    public static void main(String args[])
+    {
+        QuickSort ob = new QuickSort();
+        int array[] = {7, -5, 3, 2, 1, 0, 45};
+        System.out.println("Original Array:");
+        System.out.println(Arrays.toString(array));
+        ob.sort(array);
+        System.out.println("Sorted Array");
+        System.out.println(Arrays.toString(array));
+    }
+}
+
+8.Write a Java program to sort an array of given integers using the Merge Sort Algorithm.
+code:
+      import java.util.Arrays;  
+class MergeSort
+{
+    void merge(int arr[], int left, int m, int right)
+    {
+        int n1 = m - left + 1;
+        int n2 = right - m;
+ 
+        int Left_part_arra[] = new int [n1];
+        int Right_part_arra[] = new int [n2];
+ 
+        for (int i=0; i<n1; ++i)
+            Left_part_arra[i] = arr[left + i];
+        for (int j=0; j<n2; ++j)
+            Right_part_arra[j] = arr[m + 1+ j];
+
+        int i = 0, j = 0;
+ 
+        int k = left;
+        while (i < n1 && j < n2)
+        {
+            if (Left_part_arra[i] <= Right_part_arra[j])
+            {
+                arr[k] = Left_part_arra[i];
+                i++;
+            }
+            else
+            {
+                arr[k] = Right_part_arra[j];
+                j++;
+            }
+            k++;
+        }
+ 
+        while (i < n1)
+        {
+            arr[k] = Left_part_arra[i];
+            i++;
+            k++;
+        }
+ 
+        while (j < n2)
+        {
+            arr[k] = Right_part_arra[j];
+            j++;
+            k++;
+        }
+    }
+ 
+    // merge()
+    void sort(int arr[], int left, int right)
+    {
+        if (left < right)
+        {
+             int m = (left+right)/2;
+ 
+            sort(arr, left, m);
+			// Sort second halve
+            sort(arr , m+1, right);
+ 
+           
+            merge(arr, left, m, right);
+        }
+    }
+ 
+	
+    public static void main(String args[])
+    {
+        MergeSort ob = new MergeSort();
+        int arr[] = {7, -5, 3, 2, 1, 0, 45};
+        System.out.println("Original Array:");
+        System.out.println(Arrays.toString(arr));
+        ob.sort(arr, 0, arr.length-1);
+         System.out.println("Sorted Array:");
+        System.out.println(Arrays.toString(arr));
+        }    
+    
+}
+
+  
+9.time and space complexity of this code 
+   let a = 0, b = 0;
+for (let i = 0; i < n; ++i) {
+    for (let j = 0; j < n; ++j) {
+        a = a + j;
+    }
+}
+for (let k = 0; k < n; ++k) {
+    b = b + k;
+}
+
+  time complexity:O(n*n)
+  space complexity:O(1)
+
+10.What is the time complexity of the  code
+  function search (list, item, start, end) {
+    if (start > end) {
+        return false;
+    }
+    const mid = Math.floor((start + end) / 2);
+    if (list[mid] < item) {
+        return search(list, item, mid + 1, end);
+    }
+    if (list[mid] > item) {
+        return search(list, item, start, mid - 1);
+    }
+    return true;
+}
+
+ time complexity is:O(log n)
+   
