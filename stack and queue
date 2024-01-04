@@ -1,0 +1,632 @@
+1.Implementing stack using array
+
+java.util.Arrays;
+public class stack {
+  
+  int [] arr;
+  int capacity;
+   int index;
+  
+  public stack(int capacity){
+  this.arr=new int[capacity];
+  this.capacity=capacity;
+  index =-1;
+}
+  public void push(int data) {
+    if (isFull()) {
+      System.out.println("Stack is full.");
+    }else{
+    this.arr[++index] = data;
+     System.out.println("hello i'm  " +data+ " going  into  the stack");
+  }
+}
+  public int pop() {
+    if (isEmpty()) {
+      System.out.println("Stack is empty. Cannot pop element.");
+      return -1;
+    }
+     return this.arr[index--];
+  }
+  public int peek() {
+    if (isEmpty()) {
+      System.out.println("Stack is empty. Cannot peek element.");
+      return -1;
+    }else{
+    return this.arr[index];
+    }
+  }
+  public boolean isEmpty() {
+    return (index == -1);
+  }
+  public boolean isFull() {
+    return (index == capacity - 1);
+  }
+ 
+public static void main(String args[]){
+ stack s=new stack(5);
+ s.push(10);
+ s.push(20);
+ s.push(30);
+ s.pop();
+System.out.println(s.peek());
+System.out.println("is stack empty?"+s.isEmpty());
+ }
+}
+
+2.program sort the element in ascending order
+
+import java.util.Scanner;
+public class Stack {
+  private int[] arr;
+  private int top;
+
+  public Stack(int size) {
+    arr = new int[size];
+    top = -1;
+  }
+
+  public void push(int data) {
+    if (top == arr.length - 1) {
+      System.out.println("Stack is full");
+    } else {
+      arr[++top] = data;
+    }
+  }
+
+  public int pop() {
+    if (top == -1) {
+      System.out.println("Stack Underflow");
+      return -1;
+    } else {
+      int poppedElement = arr[top];
+      top--;
+      return poppedElement;
+    }
+  }
+  public int peek() {
+    if (top == -1) {
+      System.out.println("Stack is empty");
+      return -1;
+    } else {
+      return arr[top];
+    }
+  }
+  public boolean isEmpty() {
+    return top == -1;
+  }
+
+  public void sort() {
+    if (top == -1) {
+      System.out.println("Stack is empty");
+      return;
+    }
+
+    Stack tempStack = new Stack(arr.length);
+
+    while (!isEmpty()) {
+      int temp = pop();
+
+      while (!tempStack.isEmpty() && tempStack.peek() > temp) {
+        push(tempStack.pop());
+      }
+
+      tempStack.push(temp);
+    }
+
+    while (!tempStack.isEmpty()) {
+      push(tempStack.pop());
+    }
+  }
+
+  public void display() {
+    if (top == -1) {
+      System.out.println("Stack is empty");
+    } else {
+      System.out.print("Stack elements: ");
+      for (int i = top; i >= 0; i--) {
+        System.out.print(arr[i] + " ");
+      }
+      System.out.println();
+    }
+  }
+
+  public static void main(String[] args) {
+    Stack stack = new Stack(6);
+    System.out.println("\nInsert elements on the stack:");
+    stack.push(1);
+    stack.push(3);
+    stack.push(6);
+    stack.push(0);
+    stack.push(8);
+    stack.push(5);
+    stack.display();
+    System.out.println("\n after Sorting the elements of the stack in ascending order:");
+    stack.sort();
+    stack.display();
+  }
+}
+
+3.program to reverse the elements of a stack.
+import java.util.Scanner;
+public class Stack {
+  private int[] arr;
+  private int top;
+
+  public Stack(int size) {
+    arr = new int[size];
+    top = -1;
+  }
+
+  public void push(int num) {
+    if (top == arr.length - 1) {
+      System.out.println("Stack is full");
+    } else {
+      top++;
+      arr[top] = num;
+    }
+  }
+  public int pop() {
+    if (top == -1) {
+      System.out.println("Stack Underflow");
+      return -1;
+    } else {
+      int poppedElement = arr[top];
+      top--;
+      return poppedElement;
+    }
+  }
+   public int peek() {
+    if (top == -1) {
+      System.out.println("Stack is empty");
+      return -1;
+    } else {
+      return arr[top];
+    }
+  }
+  public boolean isEmpty() {
+    return top == -1;
+  }
+
+  public void reverse() {
+    if (top == -1) {
+      System.out.println("Stack is empty");
+      return;
+    }
+
+    int[] reversedArray = new int[arr.length];
+    int index = 0;
+
+    while (!isEmpty()) {
+      int temp = pop();
+      reversedArray[index++] = temp;
+    }
+
+    for (int i = 0; i < index; i++) {
+      push(reversedArray[i]);
+    }
+  }
+  public void display() {
+    if (top == -1) {
+      System.out.println("Stack is empty");
+    } else {
+      System.out.print("Stack elements: ");
+      for (int i = top; i >= 0; i--) {
+        System.out.print(arr[i] + " ");
+      }
+      System.out.println();
+    }
+  }
+
+  public static void main(String[] args) {
+    Stack stack = new Stack(10);
+    System.out.println("\nInsert elements on the stack:");
+    stack.push(1);
+    stack.push(3);
+    stack.push(2);
+    stack.push(0);
+    stack.push(7);
+    stack.push(5);
+    stack.display();
+    System.out.println("\nReversed elements of the stack:");
+    stack.reverse();
+    stack.display();
+    System.out.println("\nInsert two more elements on the stack:");
+    stack.push(9);
+    stack.push(10);
+    stack.display();
+    System.out.println("\nReversed elements of the stack:");
+    stack.reverse();
+    stack.display();
+  }
+}
+
+4. stack program to check if the given element is preswnt in the stack
+import java.util.Scanner;
+public class Stack {
+  private int[] arr;
+  private int index;
+
+  public Stack(int capacity) {
+    arr = new int[capacity];
+    index= -1;
+  }
+  public void push(int data) {
+    if (index== arr.length - 1) {
+      System.out.println("Stack is full");
+    } else {
+      index++;
+      arr[index] = data;
+    }
+  }
+  public int pop() {
+    if (index == -1) {
+      System.out.println("Stack empty");
+      return -1;
+    } else {
+      int poppedElement = arr[index];
+      index--;
+      return poppedElement;
+    }
+  }
+  public int peek() {
+    if (index == -1) {
+      System.out.println("Stack is empty");
+      return -1;
+    } else {
+      return arr[index];
+    }
+  }
+
+  // Method to check if the stack is empty
+  public boolean isEmpty() {
+    return index == -1;
+  }
+  public boolean contains(int element) {
+    for (int i = 0; i <= index; i++) {
+      if (arr[i] == element) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public void display() {
+    if (index == -1) {
+      System.out.println("Stack is empty");
+    } else {
+      System.out.print("Stack elements: ");
+      for (int i = index; i >= 0; i--) {
+        System.out.print(arr[i] + " ");
+      }
+      System.out.println();
+    }
+  }
+
+  public static void main(String[] args) {
+    Stack stack = new Stack(10);
+    stack.push(1);
+    stack.push(3);
+    stack.push(2);
+    stack.push(0);
+    stack.push(7);
+    stack.push(5);
+    stack.push(-1);
+    stack.display();
+    boolean result = stack.contains(0);
+    System.out.println("\nIs 0 present in the stack? " + result);
+    result = stack.contains(9);
+    System.out.println("\nIs 9 present in the stack? " + result);
+  }
+}
+
+5.program to implement stack using linked list
+
+public class Stack {
+
+  private Node top;
+  private int size;
+
+
+  private class Node {
+    int data;
+    Node next;
+
+    public Node(int data) {
+      this.data = data;
+      next = null;
+    }
+  }
+
+  public Stack() {
+    top = null;
+    size = 0;
+  }
+
+  public boolean isEmpty() {
+    return top == null;
+  }
+
+  public void push(int data) {
+    Node newNode = new Node(data);
+    newNode.next = top;
+    top = newNode;
+    size++;
+  }
+  public int pop() {
+    if (isEmpty()) {
+      System.out.println("Stack is empty");
+      return -1;
+    }
+    int temp = top.data;
+    top = top.next;
+    size--;
+    return temp;
+  }
+
+  public int peek() {
+    if (isEmpty()) {
+      System.out.println("Stack is empty");
+      return -1;
+    }
+    return top.data;
+  }
+
+
+
+  public static void main(String[] args) {
+    Stack stack = new Stack();
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+    stack.push(4);
+    stack.push(5);
+    System.out.println("\nTop element: " + stack.peek());
+    stack.pop();
+    stack.pop();
+    stack.display();
+    System.out.println("\nTop element: " + stack.peek());
+  }
+}
+
+6.program implementing stack usng two queue
+
+import java.util.*;
+public class Stack {
+
+    private Queue<Integer> q1;
+    private Queue<Integer> q2;
+
+    public Stack() {
+        q1 = new LinkedList<>();
+        q2 = new LinkedList<>();
+    }
+
+    public void push(int x) {
+        q2.add(x);
+        while (!q1.isEmpty()) {
+            q2.add(q1.poll());
+        }
+        Queue<Integer> temp = q1;
+        q1 = q2;
+        q2 = temp;
+    }
+
+    public int pop() {
+        if (q1.isEmpty()) {
+            return -1;
+        }
+        return q1.poll();
+    }
+
+    public int top() {
+        if (q1.isEmpty()) {
+            return -1;
+        }
+        return q1.peek();
+    }
+
+    public boolean empty() {
+        return q1.isEmpty();
+    }
+
+    public static void main(String[] args) {
+        Stack stack = new Stack();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        stack.push(5);  
+        System.out.println(stack.top()); //5
+        System.out.println(stack.pop()); //5
+        System.out.println(stack.top()); //4
+        System.out.println(stack.pop()); //4
+        System.out.println(stack.top()); // 3
+        System.out.println(stack.pop()); // 3
+        System.out.println(stack.empty());//flase
+    }
+}
+
+7.implemeting stack using single queue
+
+public class Stack {
+
+    Queue<Integer> q = new LinkedList<Integer>();
+
+    public void push(int data) {
+        int size = q.size();
+         q.add(data);
+        for (int i = 0; i < size; i++) {
+           int temp=q.remove();
+             q.add(temp);
+        }
+     }
+
+    public int pop() {
+     if(q.isEmpty()) {
+   System.out.println("stack is empty");
+        return -1;
+    }
+    int data=q.remove();
+       return temp;
+}
+
+    public boolean isEmpty() {
+        return q.isEmpty();
+    }
+
+    public int size() {
+        return q.size();
+    }
+
+    public static void main(String[] args) {
+        Stack stack = new Stack();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        stack.push(6);
+        System.out.println(stack.pop()); // 6
+        System.out.println(stack.pop()); // 4
+        System.out.println(stack.pop()); // 3
+        System.out.println(stack.isEmpty()); //false
+    }
+}
+
+8.reverse stack using recursion
+
+import java.util.Stack;
+
+class stackreverse {
+
+ static Stack<Character> st = new Stack<>();
+
+ static void insert_at_bottom(char x){
+       if (st.isEmpty())
+	st.push(x);
+
+else {
+	char a = st.peek();
+	st.pop();
+	insert_at_bottom(x);
+	st.push(a);
+      }
+  }
+	static void reverse(){
+	if (st.size() > 0) {
+	char x = st.peek();
+	st.pop();
+	reverse();
+	insert_at_bottom(x);
+    }
+ }
+public static void main(String[] args){
+	st.push('1');
+	st.push('2');
+	st.push('3');
+	st.push('4');
+        st.push('5');
+	System.out.println("Original Stack");
+	System.out.println(st);//[1,2,3,4,5]
+	reverse();
+       System.out.println("Reversed Stack");
+        System.out.println(st);//[5,4,3,2,1]
+    }
+}
+
+9.implement queue using two stack
+
+public class QueueStacks {
+    private Stack<Integer> s1;
+    private Stack<Integer> s2;
+
+    public QueueStacks() {
+        s1 = new Stack<>();
+        s2 = new Stack<>();
+    }
+
+    public void enqueue(int x) {
+        s1.push(x);
+    }
+
+    public int dequeue() {
+        if (s2.isEmpty()) {
+            while (!s1.isEmpty()) {
+                s2.push(s1.pop());
+            }
+        }
+        return s2.pop();
+    }
+
+    public boolean isEmpty() {
+        return s1.isEmpty() && s2.isEmpty();
+    }
+
+    public static void main(String[] args) {
+        QueueStacks q = new QueueStacks();
+        q.enqueue(1);
+        q.enqueue(2);
+        q.enqueue(3);
+        System.out.println(q.dequeue()); 
+        System.out.println(q.dequeue()); 
+        System.out.println(q.dequeue()); 
+    }
+}
+
+10.program to count all stack elements
+
+import java.util.Scanner;
+public class Stack {
+  private int[] arr;
+  private int top;
+
+  public Stack(int size) {
+    arr = new int[size];
+    top = -1;
+  }
+  public void push(int num) {
+    if (top == arr.length - 1) {
+      System.out.println("Stack is full");
+    } else {
+      top++;
+      arr[top] = num;
+    }
+  }
+  public int pop() {
+    if (top == -1) {
+      System.out.println("Stack Underflow");
+      return -1;
+    } else {
+      int poppedElement = arr[top];
+      top--;
+      return poppedElement;
+    }
+  }
+  public int peek() {
+    if (top == -1) {
+      System.out.println("Stack is empty");
+      return -1;
+    } else {
+      return arr[top];
+    }
+  }
+  public boolean isEmpty() {
+    return top == -1;
+  }
+
+  public int count() {
+    return top + 1;
+  }
+
+  public static void main(String[] args) {
+    Stack stack = new Stack(10);
+    stack.push(1);
+    stack.push(3);
+    stack.push(2);
+    stack.push(0);
+    stack.push(7);
+    stack.push(5);
+    stack.push(-1);
+    int ctr = stack.count();
+    System.out.println("\nNumber of elements in the stack: " + ctr);
+  }
+}
