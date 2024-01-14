@@ -1,0 +1,323 @@
+1.program to perform all the basic operation of hashMap
+
+import java.util.HashMap;
+public class LinkedHashMap{
+    public static void main (String args[]){
+
+        HashMap<Integer, String>h = new HashMap<Integer, String>();
+        h.put(12, "Mahesh");
+        h.put(5, "Naresh");
+        h.put(23, "Suresh");
+        h.put(9, "Sachin");
+        System.out.println(h.containsValue("Suresh"));
+        System.out.println(h.containsKey(10));
+        System.out.println( h.size());
+        System.out.println( h.remove(5));
+        System.out.println(h.isEmpty());
+        System.out.println( h.remove(12));
+        h.clear();
+        System.out.println(h.isEmpty());
+    }
+}
+
+2.boarding pass program hashtable
+
+import java.util.*;
+import java.util.Scanner;
+
+class pass {
+  public static void main(String[] args) 
+  {
+    Hashtable<Integer,String> h = new Hashtable<Integer,String>();
+    Scanner scanner = new Scanner(System.in);
+    int size = scanner.nextInt();
+    int arr[]=new int[size];
+    for (int i = 0; i < size; i++) {
+           arr[i] = scanner.nextInt();
+       }
+    
+    for(int i:arr)
+    {
+      if(h.containsKey(i))
+      System.out.println(i);
+      else
+      h.put(i,"Checked");
+    }
+  }
+}
+
+3.find the symetric pairs in even array pair
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+class Symetricpairs {
+
+   public static void main(String arg[]) {
+       Scanner input = new Scanner(System.in);
+       int n = input.nextInt();
+       int arr[][] = new int[n][2];
+       for (int i = 0; i < n; i++) {
+           arr[i][0] = input.nextInt();
+           arr[i][1] = input.nextInt();
+       }
+       HashMap<Integer, Integer> h = new HashMap<Integer, Integer>();
+
+       boolean flag = false;
+       for (int i = 0; i < arr.length; i++) {
+           int first1 = arr[i][0];
+           int second1 = arr[i][1];
+           Integer data = h.get(second1);
+           if (data != null && data == first1) {
+               System.out.println(second1 + " " + first1);
+               flag = true;
+           }
+           else
+               h.put(first1, second1);
+       }
+       if (!flag) {
+           System.out.println("there is no Symmetric pair");
+       }
+   }
+}
+
+4.program to check given pair is equal the given target sum
+
+import java.io.*;
+import java.util.HashSet;
+
+class PairSum {
+static void printpair(int arr[], int sum){
+HashSet<Integer> h = new HashSet<Integer>();
+for (int i = 0; i < arr.length; ++i) {
+int temp = sum - arr[i];
+
+
+  if (h.contains(temp)) {
+  System.out.println("Yes");
+   return;
+			}
+   h.add(arr[i]);
+ }
+   System.out.println("No");
+}
+  public static void main(String[] args){
+     int A[] = { 1, 4, 45, 6, 10, 8 };
+	int n = 16;
+	printpairs(A, n);
+	}
+}
+
+5.program using hashset
+
+import java.util.*;
+
+class Source {
+    public static void main(String[] args) {
+
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        Set<Integer> h = new HashSet<Integer>();
+
+    for (int i = 0; i < n; i++) {
+        int a = in.nextInt();
+        int b = in.nextInt();
+    switch (a) {
+   case 1:
+          h.add(b);
+          break;
+
+   case 2:
+       if (h.contains(b)) {
+       System.out.println("true");
+    }else {
+        System.out.println("false");
+     }
+           break;
+
+    case 3:
+           h.remove(b);
+              break;
+
+            }
+        }
+    }
+}
+
+6.prorgam Check Array of Contiguous Integers using hashset
+
+import java.util.*;
+
+class arrays {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n;
+        n = in.nextInt();
+
+        int[] array = new int[n];
+        for (int i = 0; i < n; i++) {
+            array[i] = in.nextInt();
+        }
+
+        boolean result = isContiguous(array);
+          System.out.println(result);
+    }
+   public static boolean isContiguous(int[] arr) {
+        Set<Integer> s = new HashSet<>();
+        for (int data : arr) {
+            s.add(data);
+        }
+        for (int data : arr) {
+            int temp = data;
+            int count = 0;
+            
+            while (s.contains(temp)) {
+                count++;
+                temp--;
+            }
+
+            temp = data + 1;
+            while (s.contains(temp)) {
+                count++;
+                temp++;
+            }
+            if (count == s.size()) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
+7.itinery of all the tickets
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Source {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        // get the no of tickets from input
+        int n = in.nextInt();
+
+        Map<String, String> tickets = new HashMap<String, String>();
+        for (int i = 0; i < n; i++) {
+            tickets.put(in.next(), in.next());
+            in.nextLine();
+        }
+        String start = findStartingPoint(tickets);
+        printJourney(tickets, start);
+    }
+
+    private static String findStartingPoint(Map<String, String> tickets) {
+        for (String source : tickets.keySet()) {
+            if (!tickets.containsValue(source)) {
+                return source;
+}
+        }
+        return null;
+    }
+
+    private static void printJourney(Map<String, String> tickets, String start) {
+        if (start == null) {
+            System.out.println("Invalid");
+            return;
+        }
+
+        System.out.print(start + " ");
+
+        String next = tickets.get(start);
+
+        while (next != null) {
+            System.out.print(next + " ");
+            next = tickets.get(next);
+        }
+    }
+}
+
+8.program to copy all mappings from the specified map to another map.
+
+import java.util.*;  
+public class exchangemap { 
+ 
+   public static void main(String args[]) {
+
+  HashMap <Integer,String> map1 = new HashMap <Integer,String> ();
+  HashMap <Integer,String> map2 = new HashMap <Integer,String> ();
+
+    map1.put(1, "Red");
+     map1.put(2, "Green");
+     map1.put(3, "Black");
+
+  System.out.println(map1);
+
+     map2.put(4, "White");
+      map2.put(5, "Blue");
+     map2.put(6, "Orange");
+      System.out.println(map2);
+       map2.putAll(map1);
+      System.out.println(map2);
+   }
+}
+
+9.program to Find the length of largest subarray with ZERo sum
+
+import java.util.HashMap;
+
+class SumSubarray {
+    static int maxLength(int arr[]){
+
+        HashMap<Integer, Integer> h= new HashMap<Integer, Integer>();
+            int sum = 0;
+	   int max_len = 0; 
+
+	for (int i = 0; i < arr.length; i++) {
+          sum += arr[i];
+          if (sum == 0)
+	 max_len = i + 1;
+	Integer prev_i = h.get(sum);
+	if (prev_i != null)
+	max_len = Math.max(max_len, i - prev_i);
+	h.put(sum, i);
+  }
+
+    return max_len;
+ }
+
+  public static void main(String arg[]){
+  int arr[] = { 15, -2, 2, -8, 1, 7, 10, 23 };
+	System.out.println(maxLen(arr));
+    }
+}
+
+10.program to check whether an array is subset of another array
+
+import java.util.HashSet;
+class subset {
+static boolean isSubset(int arr1[], int arr2[], int m,int n){
+	HashSet<Integer> h = new HashSet<>();
+	for (int i = 0; i < m; i++) {
+	if (!h.contains(arr1[i]))
+	h.add(arr1[i]);
+    }
+	for (int i = 0; i < n; i++) {
+	if (!h.contains(arr2[i]))
+	    return false;
+     }
+	return true;
+  }
+public static void main(String[] args){
+      int arr1[] = { 11, 1, 13, 21, 3, 7 };
+       int arr2[] = { 11, 3, 7, 1 };
+       int m = arr1.length;
+      int n = arr2.length;
+
+     if (isSubset(arr1, arr2, m, n))
+	System.out.println("arr2[] is subset of arr1[] ");
+		else
+	System.out.println("arr2[] is not a subset of arr1[] ");
+   }
+}
